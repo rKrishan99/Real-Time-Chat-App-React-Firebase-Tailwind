@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import EmojiPicker from "emoji-picker-react";
 
 const Chat = () => {
   const [open, setOpen] = useState(false);
   const [text, setText] = useState("");
+
+  const endRef = useRef(null);
+
+  useEffect(() => {
+    endRef.current?.scrollIntoView({behavior: "smooth"});
+  },[]);
 
   const handleEmoji = (e) => {
     setText((prev) => prev + e.emoji);
@@ -32,19 +38,82 @@ const Chat = () => {
         </div>
       </div>
       {/* center container */}
-      <div className="p-6 flex-1">
-        <div className="">
-          <img src="./avatar.png" alt="" />
-          <div className="">
-            <p>
+      <div className="p-6 flex-1 overflow-scroll flex flex-col gap-10">
+        <div className="max-w-lg flex gap-2">
+          <img className="w-6 h-6 object-cover rounded-full" src="./avatar.png" alt="" />
+          <div className="flex-1 flex flex-col gap-1">
+            <p className="bg-gray-900 p-4 rounded-lg text-sm">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
               deleniti debitis optio delectus perferendis facilis hic impedit
               nesciunt tempore, nemo voluptas, recusandae, laboriosam velit
               corrupti labore dolores ad sint ex.
             </p>
-            <span>1 min ago</span>
+            <span className="text-xs">5 min ago</span>
           </div>
         </div>
+        <div className="max-w-lg flex gap-2 self-end">
+          <div className="flex-1 flex flex-col gap-1">
+          <img className="rounded-md" src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/3d0f6/MainAfter.avif" alt="" />
+
+            <p className="bg-blue-400 p-4 rounded-lg text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+              deleniti debitis optio delectus perferendis facilis hic impedit
+              nesciunt tempore, nemo voluptas, recusandae, laboriosam velit
+              corrupti labore dolores ad sint ex.
+            </p>
+            <span className="text-xs self-end">1 min ago</span>
+          </div>
+          <img className="w-6 h-6 object-cover rounded-full" src="./avatar.png" alt="" />
+        </div>
+        <div className="max-w-lg flex gap-2">
+          <img className="w-6 h-6 object-cover rounded-full" src="./avatar.png" alt="" />
+          <div className="flex-1 flex flex-col gap-1">
+            <p className="bg-gray-900 p-4 rounded-lg text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+              deleniti debitis optio delectus perferendis facilis hic impedit
+              nesciunt tempore, nemo voluptas, recusandae, laboriosam velit
+              corrupti labore dolores ad sint ex.
+            </p>
+            <span className="text-xs">5 min ago</span>
+          </div>
+        </div>
+        <div className="max-w-lg flex gap-2 self-end">
+          <div className="flex-1 flex flex-col gap-1">
+            <p className="bg-blue-400 p-4 rounded-lg text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+              deleniti debitis optio delectus perferendis facilis hic impedit
+              nesciunt tempore, nemo voluptas, recusandae, laboriosam velit
+              corrupti labore dolores ad sint ex.
+            </p>
+            <span className="text-xs self-end">1 min ago</span>
+          </div>
+          <img className="w-6 h-6 object-cover rounded-full" src="./avatar.png" alt="" />
+        </div>
+        <div className="max-w-lg flex gap-2">
+          <img className="w-6 h-6 object-cover rounded-full" src="./avatar.png" alt="" />
+          <div className="flex-1 flex flex-col gap-1">
+            <p className="bg-gray-900 p-4 rounded-lg text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+              deleniti debitis optio delectus perferendis facilis hic impedit
+              nesciunt tempore, nemo voluptas, recusandae, laboriosam velit
+              corrupti labore dolores ad sint ex.
+            </p>
+            <span className="text-xs">5 min ago</span>
+          </div>
+        </div>
+        <div className="max-w-lg flex gap-2 self-end">
+          <div className="flex-1 flex flex-col gap-1">
+            <p className="bg-blue-400 p-4 rounded-lg text-sm">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+              deleniti debitis optio delectus perferendis facilis hic impedit
+              nesciunt tempore, nemo voluptas, recusandae, laboriosam velit
+              corrupti labore dolores ad sint ex.
+            </p>
+            <span className="text-xs self-end">1 min ago</span>
+          </div>
+          <img className="w-6 h-6 object-cover rounded-full" src="./avatar.png" alt="" />
+        </div>
+        <div ref={endRef}></div>
       </div>
       {/* bottom container */}
       <div className="p-4 flex gap-4 mt-auto items-center justify-between border-t-[1px] border-zinc-400">
