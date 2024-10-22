@@ -2,3 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+
+*{
+ @apply m-0 p-0 box-border
+}
+
+body{
+  @apply h-screen sm:h-screen md:h-screen flex items-center justify-center bg-cover bg-no-repeat md:h-full sm:max-h-full;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-image: url("/bgImage.jpg");
+}
