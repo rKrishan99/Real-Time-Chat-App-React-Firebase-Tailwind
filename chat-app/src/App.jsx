@@ -3,9 +3,24 @@ import Chat from "./components/chat/Chat";
 import List from "./components/list/List";
 import Login from "./components/login/Login";
 import Notification from "./components/notification/Notification";
+import { useEffect } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
-  const user = true;
+  const user = false;
+
+  useEffect(() => {
+    const unSub = onAuthStateChanged(auth, (user) => {
+      console.log(user);
+
+      
+    });
+    
+    return () => {
+      unSub();
+    };
+
+  }, []);
 
   return (
     <div
@@ -21,7 +36,10 @@ function App() {
       ) : (
         <Login />
       )}
-      <Notification/>
+      <div className="absolute">
+        <Notification/>
+      </div>
+      
     </div>
   );
 };
