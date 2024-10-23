@@ -5,29 +5,32 @@ import Login from "./components/login/Login";
 import Notification from "./components/notification/Notification";
 import { useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
+import { useUserStore } from "./lib/userStore";
 
 function App() {
-  const user = false;
+  const { currentUser, isLoading, fetchUserInfo } = useUserStore();
 
   useEffect(() => {
     const unSub = onAuthStateChanged(auth, (user) => {
-      console.log(user);
-
-      
+      fetchUserInfo(user?.uid);
     });
-    
+
     return () => {
       unSub();
     };
+  }, [fetchUserInfo]);
 
-  }, []);
+  console.log(currentUser);
+
+  if (isLoading)
+    return <div className="p-10 text-lg rounded-lg bg-sky-800">Loading...</div>;
 
   return (
     <div
       className="w-screen h-screen bg-slate-800 bg-opacity-80 backdrop-blur-sm backdrop-saturate-50 border-2 border-neutral-800 border-opacity-40
       flex "
     >
-      {user ? (
+      {currentUser ? (
         <>
           <List />
           <Chat />
@@ -37,11 +40,10 @@ function App() {
         <Login />
       )}
       <div className="absolute">
-        <Notification/>
+        <Notification />
       </div>
-      
     </div>
   );
-};
+}
 
 export default App;

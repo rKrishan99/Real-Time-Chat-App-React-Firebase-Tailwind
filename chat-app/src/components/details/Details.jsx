@@ -1,4 +1,5 @@
 import React from "react";
+import { auth } from "../../lib/firebase";
 
 const Details = () => {
   return (
@@ -77,7 +78,7 @@ const Details = () => {
           <button className="px-8 py-1.5 bg-red-600 border-none rounded-lg text-white cursor-pointer hover:bg-red-700 text-sm font-bold">
             Block User
           </button>
-          <button className="px-8 py-1.5 bg-blue-600 border-none rounded-lg text-white cursor-pointer hover:bg-blue-700 text-sm font-bold">
+          <button onClick={() => auth.signOut()} className="px-8 py-1.5 bg-blue-600 border-none rounded-lg text-white cursor-pointer hover:bg-blue-700 text-sm font-bold">
             Logout
           </button>
         </div>
