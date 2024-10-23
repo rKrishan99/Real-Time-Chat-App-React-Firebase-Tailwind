@@ -60,7 +60,6 @@ const Details = () => {
               alt=""
             />
           </div>
-          
         </div>
         <div className="option">
           <div className="flex items-center justify-between">
@@ -72,10 +71,16 @@ const Details = () => {
             />
           </div>
         </div>
-        <button className="px-8 py-1.5 bg-red-600 border-none rounded-lg text-white cursor-pointer hover:bg-red-700 text-sm font-bold">Block User</button>
-        <button className="px-8 py-1.5 bg-blue-600 border-none rounded-lg text-white cursor-pointer hover:bg-blue-700 text-sm font-bold">Logout</button>
-
+        
       </div>
+      <div className="absolute p-6 w-96 bottom-2 flex flex-col  justify-center gap-6">
+          <button className="px-8 py-1.5 bg-red-600 border-none rounded-lg text-white cursor-pointer hover:bg-red-700 text-sm font-bold">
+            Block User
+          </button>
+          <button className="px-8 py-1.5 bg-blue-600 border-none rounded-lg text-white cursor-pointer hover:bg-blue-700 text-sm font-bold">
+            Logout
+          </button>
+        </div>
     </div>
   );
 };
