@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const Login = () => {
   const [avatar, setAvatar] = useState({
@@ -15,17 +16,23 @@ const Login = () => {
     }
   };
 
+  const handleLogin = e => {
+    e.preventDefault();
+    toast.success("Hello");
+    console.log("Clicked!");
+  }
+
   return (
     <div className="w-full h-full flex items-center gap-16">
       <div className="flex-1 flex flex-col items-center gap-10">
         <h2>Welcome back,</h2>
-        <form className="flex flex-col items-center justify-center gap-6">
+        <form onSubmit={handleLogin} className="flex flex-col items-center justify-center gap-6">
           <input className="p-4 border-none outline-none bg-slate-800 text-white rounded-lg" type="text" placeholder="Email" name="email" />
           <input className="p-4 border-none outline-none bg-slate-800 text-white rounded-lg" type="password" placeholder="password" name="password" />
           <button className="w-full p-2 border-none bg-sky-600 text-lg font-medium text-white rounded-lg cursor-pointer">Sign In</button>
         </form>
       </div>
-      <div className="h-[80%] w-[2px] bg-gray-500">
+      <div className="h-[80% ] w-[2px] bg-gray-500">
 
       </div>
       <div className="flex-1 flex flex-col items-center gap-10">
